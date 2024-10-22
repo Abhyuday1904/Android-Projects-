@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "425116018967",
+    "project_id": "foodwastagereductionapp-1904",
+    "storage_bucket": "foodwastagereductionapp-1904.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425116018967:android:dd681e9520cdb938b82f52",
+        "android_client_info": {
+          "package_name": "com.example.foodwastagereductionapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1tnOrHUnemhLZfKdXIYcFhZpAUuZRNII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
