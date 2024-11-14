@@ -1,0 +1,302 @@
+[
+  {
+    "date": "2024-11-01",
+    "day": "Friday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Paneer Butter Masala, Jeera Rice, Roti, Dal Fry, Salad, Pickle, Curd",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Chole Bhature, Rice, Salad, Pickle, Buttermilk"
+    }
+  },
+  {
+    "date": "2024-11-02",
+    "day": "Saturday",
+    "meals": {
+      "breakfast": "Chana Puri, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Veg Kolhapuri, Rice, Roti, Dal Tadka, Salad, Pickle, Curd",
+      "snacks": "Pasta, Tea, Coffee",
+      "dinner": "Aloo Paratha, Curd, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-03",
+    "day": "Sunday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Rajma, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pani Puri, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-04",
+    "day": "Monday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Mixed Vegetable, Rice, Roti, Dal Fry, Salad, Curd, Pickle",
+      "snacks": "Maggi, Tea, Coffee",
+      "dinner": "Paneer Tikka, Naan, Rice, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-05",
+    "day": "Tuesday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Aloo Gobi, Jeera Rice, Roti, Dal Tadka, Salad, Pickle, Curd",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Veg Pulao, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-06",
+    "day": "Wednesday",
+    "meals": {
+      "breakfast": "Dhokla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Chana Masala, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Vada Pav, Tea, Coffee",
+      "dinner": "Dal Khichdi, Papad, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-07",
+    "day": "Thursday",
+    "meals": {
+      "breakfast": "Thepla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Paneer Butter Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pakora, Tea, Coffee",
+      "dinner": "Chole Rice, Bhature, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-08",
+    "day": "Friday",
+    "meals": {
+      "breakfast": "Chana Puri, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Rajma Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Kachori, Tea, Coffee",
+      "dinner": "Mutter Paneer, Rice, Roti, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-09",
+    "day": "Saturday",
+    "meals": {
+      "breakfast": "Aloo Paratha, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Vegetable Khichdi, Papad, Curd, Salad, Pickle",
+      "snacks": "Bread Pakora, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-10",
+    "day": "Sunday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Rajma, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pani Puri, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-11",
+    "day": "Monday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Aloo Gobi, Jeera Rice, Roti, Salad, Pickle, Curd",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Paneer Butter Masala, Roti, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-12",
+    "day": "Tuesday",
+    "meals": {
+      "breakfast": "Thepla, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Dal Makhani, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Kachori, Tea, Coffee",
+      "dinner": "Aloo Paratha, Salad, Pickle, Curd"
+    }
+  },
+  {
+    "date": "2024-11-13",
+    "day": "Wednesday",
+    "meals": {
+      "breakfast": "Dhokla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Chole, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Maggi, Tea, Coffee",
+      "dinner": "Vegetable Khichdi, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-14",
+    "day": "Thursday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Rajma, Jeera Rice, Roti, Salad, Pickle, Curd",
+      "snacks": "Pakora, Tea, Coffee",
+      "dinner": "Paneer Tikka, Naan, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-15",
+    "day": "Friday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Aloo Gobi, Jeera Rice, Roti, Salad, Pickle, Curd",
+      "snacks": "Vada Pav, Tea, Coffee",
+      "dinner": "Veg Pulao, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-16",
+    "day": "Saturday",
+    "meals": {
+      "breakfast": "Aloo Paratha, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Mixed Vegetable, Rice, Roti, Dal Fry, Salad, Pickle, Curd",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Chole Bhature, Rice, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-17",
+    "day": "Sunday",
+    "meals": {
+      "breakfast": "Chana Puri, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Dal Tadka, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Bread Pakora, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-18",
+    "day": "Monday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Chana Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Maggi, Tea, Coffee",
+      "dinner": "Dal Khichdi, Papad, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-19",
+    "day": "Tuesday",
+    "meals": {
+      "breakfast": "Thepla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Paneer Butter Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Kachori, Tea, Coffee",
+      "dinner": "Veg Pulao, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-20",
+    "day": "Wednesday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Dal Tadka, Jeera Rice, Roti, Salad, Pickle, Curd",
+      "snacks": "Vada Pav, Tea, Coffee",
+      "dinner": "Rajma, Roti, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-21",
+    "day": "Thursday",
+    "meals": {
+      "breakfast": "Dhokla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Chole, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pakora, Tea, Coffee",
+      "dinner": "Paneer Tikka, Naan, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-22",
+    "day": "Friday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Dal Fry, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Aloo Paratha, Curd, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-23",
+    "day": "Saturday",
+    "meals": {
+      "breakfast": "Chana Puri, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Veg Kolhapuri, Rice, Roti, Dal Tadka, Salad, Curd, Pickle",
+      "snacks": "Pasta, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-24",
+    "day": "Sunday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Rajma, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pani Puri, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-25",
+    "day": "Monday",
+    "meals": {
+      "breakfast": "Idli - Sambar, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Mixed Vegetable, Rice, Roti, Dal Fry, Salad, Curd, Pickle",
+      "snacks": "Maggi, Tea, Coffee",
+      "dinner": "Paneer Tikka, Naan, Rice, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-26",
+    "day": "Tuesday",
+    "meals": {
+      "breakfast": "Poha, Tea, Coffee, Milk, Sprout Item",
+      "lunch": "Aloo Gobi, Jeera Rice, Roti, Salad, Pickle, Curd",
+      "snacks": "Samosa, Tea, Coffee",
+      "dinner": "Veg Pulao, Raita, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-27",
+    "day": "Wednesday",
+    "meals": {
+      "breakfast": "Dhokla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Chana Masala, Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Vada Pav, Tea, Coffee",
+      "dinner": "Dal Khichdi, Papad, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-28",
+    "day": "Thursday",
+    "meals": {
+      "breakfast": "Thepla, Tea, Coffee, Milk, Corn flakes, Fruits",
+      "lunch": "Paneer Butter Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Pakora, Tea, Coffee",
+      "dinner": "Chole Rice, Bhature, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-29",
+    "day": "Friday",
+    "meals": {
+      "breakfast": "Chana Puri, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Rajma Masala, Jeera Rice, Roti, Salad, Curd, Pickle",
+      "snacks": "Kachori, Tea, Coffee",
+      "dinner": "Mutter Paneer, Rice, Roti, Salad, Pickle"
+    }
+  },
+  {
+    "date": "2024-11-30",
+    "day": "Saturday",
+    "meals": {
+      "breakfast": "Aloo Paratha, Tea, Coffee, Milk, Bread Butter/Jam",
+      "lunch": "Vegetable Khichdi, Papad, Curd, Salad, Pickle",
+      "snacks": "Bread Pakora, Tea, Coffee",
+      "dinner": "Veg Biryani, Raita, Salad, Pickle"
+    }
+  }
+]
