@@ -4,12 +4,11 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
+
 
 @Dao
-interface MenuDAO {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(menus: List<Menu>)
+interface MenuDao {
 
-    @Query("SELECT * FROM menu WHERE date = :date")
-    suspend fun getMenuForDate(date: String): Menu?
 }
+

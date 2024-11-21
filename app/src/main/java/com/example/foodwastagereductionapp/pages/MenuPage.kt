@@ -47,7 +47,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.foodwastagereductionapp.data.Meal
+import com.example.foodwastagereductionapp.data.Menu
+
+import com.example.foodwastagereductionapp.ui.theme.fontFamily
 import com.example.foodwastagereductionapp.ui.theme.mainScreenColor
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -131,8 +135,6 @@ fun MessMenuScreen(meal: Meal) {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
-//                verticalArrangement = Arrangement.Center,
-//                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Row (
                     modifier = Modifier
@@ -142,8 +144,10 @@ fun MessMenuScreen(meal: Meal) {
                 ){
                     Text(
                         text = label,
+                        fontFamily = fontFamily,
                         fontSize = 35.sp,
                         textAlign = TextAlign.Start ,
+                        color = Color.White,
                         modifier = Modifier.padding(start = 10.dp))
                 }
 
@@ -159,26 +163,9 @@ fun MessMenuScreen(meal: Meal) {
                     colors = CardDefaults.cardColors(containerColor = Color.White)
                     ) {
                     Box(modifier = Modifier.fillMaxSize()){
-//                        Image(
-//                            painter = painterResource(
-//                                id = when (page) {
-//                                    0 -> com.example.foodwastagereductionapp.R.drawable.breakfast_image_for_app
-//                                    1 -> com.example.foodwastagereductionapp.R.drawable.lunch_image_for_app
-//                                    2 -> com.example.foodwastagereductionapp.R.drawable.snacks_image_for_app
-//                                    else -> com.example.foodwastagereductionapp.R.drawable.dinner_image_for_app
-//                                }
-//                            ),
-//                            contentDescription = "Card composable image"
-//                        )
-
                         MealItem(label = label, content = content)
                     }
                 }
-
-
-
-                // Display the meal for this page
-              //  MealItem(label = label, content = content)
             }
         }
     }
@@ -204,6 +191,8 @@ fun MenuPage() {
     todayMeal?.let {
         MessMenuScreen(todayMeal)
     } ?: Text("No menu available for today.")
+
+
 }
 
 fun loadJsonFromAsset(context: Context, filename: String): String {

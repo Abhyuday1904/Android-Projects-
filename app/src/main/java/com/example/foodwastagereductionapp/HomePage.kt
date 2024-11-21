@@ -1,6 +1,7 @@
 package com.example.foodwastagereductionapp
 
 
+import FeedbackPage
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -20,16 +21,17 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.foodwastagereductionapp.pages.FeedbackScreen
+
 import com.example.foodwastagereductionapp.pages.LogOut
 import com.example.foodwastagereductionapp.pages.MenuPage
 import com.example.foodwastagereductionapp.pages.NavItem
 import com.example.foodwastagereductionapp.pages.NavItemIcon
+
 import com.example.foodwastagereductionapp.pages.TimingScreen
 
 
@@ -86,12 +88,14 @@ fun HomePage( navController: NavController , authViewModel: AuthViewModel){
     }
 }
 
+
 @Composable
 fun ContentScreen(modifier : Modifier = Modifier , selectedIndex : Int , authViewModel: AuthViewModel){
+    val context = LocalContext.current
     when(selectedIndex){
         0 -> MenuPage()
-        1 -> TimingScreen()
-        2 -> FeedbackScreen()
+        1 -> TimingScreen(context)
+        2 -> FeedbackPage()
         3 -> LogOut(authViewModel = authViewModel)
     }
 }

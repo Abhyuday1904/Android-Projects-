@@ -5,20 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+
 @Database(entities = [Menu::class], version = 1, exportSchema = false)
-abstract class MenuDatabase : RoomDatabase() {
-    abstract fun menuDAO() : MenuDAO
+abstract class MealDatabase : RoomDatabase() {
+    abstract fun menuDao(): MenuDao
 
     companion object {
         @Volatile
-        private var INSTANCE: MenuDatabase? = null
+        private var INSTANCE: MealDatabase? = null
 
-        fun getDatabase(context: Context): MenuDatabase {
+        fun getDatabase(context: Context): MealDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    MenuDatabase::class.java,
-                    "menu_database"
+                    MealDatabase::class.java,
+                    "meal_database"
                 ).build()
                 INSTANCE = instance
                 instance
