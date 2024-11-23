@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -36,52 +38,79 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.foodwastagereductionapp.R
-@Composable
-fun FeedbackPage() {
+import androidx.compose.runtime.remember
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.lifecycle.ViewModel
 
-    Column(
+// ViewModel to manage state
+class FeedbackViewModel : ViewModel() {
+
+    private val _mealOptIns = mutableStateMapOf(
+        "Breakfast" to 0,
+        "Lunch" to 0,
+        "Snacks" to 0,
+        "Dinner" to 0
+    )
+
+    val mealOptIns: Map<String, Int> get() = _mealOptIns
+
+    private val maxOptIns = 10
+
+    fun optIn(mealType: String) {
+        _mealOptIns[mealType] = (_mealOptIns[mealType] ?: 0) + 1
+    }
+
+    fun getProgress(mealType: String): Float {
+        return (_mealOptIns[mealType]?.toFloat() ?: 0f) / maxOptIns
+    }
+}
+
+@Composable
+fun FeedbackPage(viewModel: FeedbackViewModel = viewModel()) {
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "Feedback Page",
-            fontSize = 30.sp,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            textAlign = TextAlign.Center
-        )
-
-        Spacer(modifier = Modifier.height(40.dp))
-
-        // Display Feedback Rows
-        listOf("Breakfast", "Lunch", "Snacks", "Dinner").forEach { mealType ->
-            FeedbackRow(mealType = mealType)
+        item {
+            Text(
+                text = "Feedback Page",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.height(40.dp))
         }
-        Spacer(modifier = Modifier.height(40.dp))
 
-        // Display Progress Rows
-        Text(
-            text = "Meal Opt-In Progress",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Medium,
-            color = MaterialTheme.colorScheme.onBackground
-        )
+        items(viewModel.mealOptIns.keys.toList()) { mealType ->
+            FeedbackRow(mealType = mealType, onOptIn = { viewModel.optIn(mealType) })
+        }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        item {
+            Spacer(modifier = Modifier.height(40.dp))
+            Text(
+                text = "Meal Opt-In Progress",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.onBackground
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+        }
 
-
-        FeedbackProgressRow(mealType = "Breakfast")
-        FeedbackProgressRow(mealType = "Lunch")
-        FeedbackProgressRow(mealType = "Snacks")
-        FeedbackProgressRow(mealType = "Dinner")
-
+        items(viewModel.mealOptIns.keys.toList()) { mealType ->
+            FeedbackProgressRow(
+                mealType = mealType,
+                progress = viewModel.getProgress(mealType)
+            )
+        }
     }
 }
 
 @Composable
-fun FeedbackRow(mealType: String) {
+fun FeedbackRow(mealType: String, onOptIn: () -> Unit) {
     var isOptedIn by remember { mutableStateOf(false) }
 
     // Lottie animation setup
@@ -101,7 +130,7 @@ fun FeedbackRow(mealType: String) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Meal Type Text
+            // Display meal type text
             Text(
                 text = mealType,
                 fontSize = 20.sp,
@@ -109,27 +138,30 @@ fun FeedbackRow(mealType: String) {
                 color = MaterialTheme.colorScheme.primary
             )
 
-            // Opt In Button or Lottie Animation
+            // Conditionally show "Opt In" button or Lottie animation
             if (!isOptedIn) {
-                Button(onClick = {
-                    isOptedIn = true
-
-                }) {
+                Button(
+                    onClick = {
+                        isOptedIn = true // Prevent multiple clicks
+                        onOptIn() // Trigger parent logic
+                    }
+                ) {
                     Text("Opt In")
                 }
             } else {
+                // Show Lottie animation after opting in
                 LottieAnimation(
                     composition = composition,
                     modifier = Modifier
                         .size(50.dp)
                         .offset(x = 50.dp),
-                    iterations = 1
+                    iterations = 1 // Run the animation only once
                 )
             }
 
-            // Rate Me Button
+            // "Rate Me" button
             Button(
-                onClick = { /* Handle Rate Me */ },
+                onClick = { /* Handle "Rate Me" logic */ },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.secondary
                 )
@@ -141,8 +173,7 @@ fun FeedbackRow(mealType: String) {
 }
 
 @Composable
-fun FeedbackProgressRow(mealType: String) {
-
+fun FeedbackProgressRow(mealType: String, progress: Float) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -164,13 +195,12 @@ fun FeedbackProgressRow(mealType: String) {
                 color = MaterialTheme.colorScheme.onBackground
             )
             LinearProgressIndicator(
-                progress = 0.5f,
+                progress = progress,
                 modifier = Modifier
                     .weight(1f)
                     .padding(horizontal = 16.dp),
                 color = MaterialTheme.colorScheme.primary
             )
-
         }
     }
 }

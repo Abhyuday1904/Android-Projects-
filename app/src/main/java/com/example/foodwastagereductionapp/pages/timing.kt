@@ -82,19 +82,31 @@ fun TimingScreen(context: Context) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Brush.verticalGradient(colors = listOf(Color(0xFF2196F3), Color(0xFF21CBF3))))
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(Color(0xFF64B5F6), Color(0xFF2196F3))
+                )
+            )
             .padding(16.dp)
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // Lottie Animation for Header
+            val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.done_animation))
+            LottieAnimation(
+                composition = composition,
+                iterations = LottieConstants.IterateForever,
+                modifier = Modifier.size(120.dp)
+            )
+
             Text(
                 text = "Meal Timings",
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.White,
-                modifier = Modifier.padding(bottom = 16.dp)
+                modifier = Modifier.padding(vertical = 16.dp)
             )
 
             mealTimings.forEach { (meal, timing) ->
@@ -121,8 +133,7 @@ fun TimingScreen(context: Context) {
                         showEditDialog.value = true // Show edit dialog on success
                     } else {
                         enteredPassword.value = ""
-                        Toast.makeText(context , "Wrong Password entered" , Toast.LENGTH_SHORT).show()
-
+                        Toast.makeText(context, "Wrong Password entered", Toast.LENGTH_SHORT).show()
                     }
                 },
                 onDismiss = {
@@ -160,7 +171,7 @@ fun MealTimingCard(mealName: String, timing: String, onEditClick: () -> Unit) {
             .padding(vertical = 8.dp),
         elevation = CardDefaults.cardElevation(8.dp),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White)
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
     ) {
         Row(
             modifier = Modifier
@@ -172,21 +183,21 @@ fun MealTimingCard(mealName: String, timing: String, onEditClick: () -> Unit) {
             Column {
                 Text(
                     text = mealName,
-                    fontSize = 18.sp,
+                    fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = Color.Black
+                    color = Color(0xFF333333)
                 )
                 Text(
                     text = timing,
-                    fontSize = 14.sp,
-                    color = Color.Gray
+                    fontSize = 16.sp,
+                    color = Color(0xFF757575)
                 )
             }
             IconButton(onClick = onEditClick) {
                 Icon(
                     imageVector = Icons.Default.Edit,
                     contentDescription = "Edit Timing",
-                    tint = Color.Gray
+                    tint = Color(0xFF2196F3)
                 )
             }
         }

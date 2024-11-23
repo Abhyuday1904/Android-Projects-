@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "425116018967",
     "project_id": "foodwastagereductionapp-1904",
-    "storage_bucket": "foodwastagereductionapp-1904.appspot.com"
+    "storage_bucket": "foodwastagereductionapp-1904.firebasestorage.app"
   },
   "client": [
     {
