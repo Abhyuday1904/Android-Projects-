@@ -94,8 +94,10 @@ dependencies {
     implementation("androidx.room:room-ktx:2.5.2")
     ksp("androidx.room:room-compiler:2.5.2")
     implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.google.code.gson:gson:2.10.1")
     implementation("com.google.android.material:material:1.12.0")
     implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     implementation ("com.google.accompanist:accompanist-pager:0.28.0")
+
+    implementation("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
 }
