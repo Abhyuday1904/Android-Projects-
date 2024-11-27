@@ -92,7 +92,7 @@ fun FeedbackPage(viewModel: FeedbackViewModel = viewModel()) {
         item {
             Spacer(modifier = Modifier.height(40.dp))
             Text(
-                text = "Meal Opt-In Progress",
+                text = "Meal Opt-Out Progress",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onBackground
@@ -146,7 +146,7 @@ fun FeedbackRow(mealType: String, onOptIn: () -> Unit) {
                         onOptIn() // Trigger parent logic
                     }
                 ) {
-                    Text("Opt In")
+                    Text("Opt Out")
                 }
             } else {
                 // Show Lottie animation after opting in
@@ -154,20 +154,11 @@ fun FeedbackRow(mealType: String, onOptIn: () -> Unit) {
                     composition = composition,
                     modifier = Modifier
                         .size(50.dp)
-                        .offset(x = 50.dp),
+                        .offset(x = 10.dp),
                     iterations = 1 // Run the animation only once
                 )
             }
 
-            // "Rate Me" button
-            Button(
-                onClick = { /* Handle "Rate Me" logic */ },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.secondary
-                )
-            ) {
-                Text("Rate Me")
-            }
         }
     }
 }

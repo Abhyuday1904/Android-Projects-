@@ -1,15 +1,12 @@
 package com.example.foodwastagereductionapp
 
-
 import FeedbackPage
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-
-import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.Icon
@@ -24,25 +21,22 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.room.Room
 import com.example.foodwastagereductionapp.data.AppDatabase
-
 import com.example.foodwastagereductionapp.pages.ImageManagementPage
-import com.example.foodwastagereductionapp.pages.LogOut
 import com.example.foodwastagereductionapp.pages.MenuPage
 import com.example.foodwastagereductionapp.pages.NavItem
 import com.example.foodwastagereductionapp.pages.NavItemIcon
+import com.example.foodwastagereductionapp.pages.ReviewPage
 import com.example.foodwastagereductionapp.pages.TimingScreen
-
 
 @Composable
 fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
@@ -56,23 +50,26 @@ fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
     }
 
     var selectedIndex by remember { mutableIntStateOf(0) }
-    var isExpanded by remember {mutableStateOf(false) } // Toggle state for expansion
 
     val NavItemList = listOf(
         NavItem("Home", NavItemIcon.VectorIcon(Icons.Default.Home)),
         NavItem("Timing", NavItemIcon.ResourceIcon(painterResource(id = R.drawable.timing_icon))),
         NavItem("Feedback", NavItemIcon.ResourceIcon(painterResource(id = R.drawable.feedback_icon_2))),
-        NavItem("Log Out", NavItemIcon.VectorIcon(Icons.Default.ExitToApp)),
-        NavItem("Gallery", NavItemIcon.VectorIcon(Icons.Default.Notifications))
+        NavItem("Gallery", NavItemIcon.VectorIcon(Icons.Default.Notifications)),
+        NavItem("Complaints", NavItemIcon.VectorIcon(Icons.Default.Face)),
     )
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
+            // Floating Bottom Navigation Bar
             NavigationBar(
-                tonalElevation = 8.dp,
-                containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.95f),
-                modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)
+                tonalElevation = 12.dp,
+                containerColor = MaterialTheme.colorScheme.surface,
+                modifier = Modifier
+                    .padding(horizontal = 16.dp, vertical = 20.dp)
+                    .clip(RoundedCornerShape(24.dp))
+                    .shadow(8.dp, RoundedCornerShape(24.dp))
             ) {
                 NavItemList.forEachIndexed { index, navItem ->
                     NavigationBarItem(
@@ -83,7 +80,7 @@ fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
                                 is NavItemIcon.VectorIcon -> Icon(
                                     imageVector = icon.imageVector,
                                     contentDescription = navItem.label,
-                                    modifier = Modifier.size(if (selectedIndex == index) 32.dp else 28.dp),
+                                    modifier = Modifier.size(if (selectedIndex == index) 36.dp else 28.dp),
                                     tint = if (selectedIndex == index)
                                         MaterialTheme.colorScheme.primary
                                     else MaterialTheme.colorScheme.onSurfaceVariant
@@ -91,7 +88,7 @@ fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
                                 is NavItemIcon.ResourceIcon -> Icon(
                                     painter = icon.painter,
                                     contentDescription = navItem.label,
-                                    modifier = Modifier.size(if (selectedIndex == index) 32.dp else 28.dp),
+                                    modifier = Modifier.size(if (selectedIndex == index) 36.dp else 28.dp),
                                     tint = if (selectedIndex == index)
                                         MaterialTheme.colorScheme.primary
                                     else MaterialTheme.colorScheme.onSurfaceVariant
@@ -99,15 +96,13 @@ fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
                             }
                         },
                         label = {
-                            if (isExpanded) {
-                                Text(
-                                    text = navItem.label,
-                                    style = MaterialTheme.typography.labelSmall,
-                                    color = if (selectedIndex == index)
-                                        MaterialTheme.colorScheme.primary
-                                    else MaterialTheme.colorScheme.onSurfaceVariant
-                                )
-                            }
+                            Text(
+                                text = navItem.label,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = if (selectedIndex == index)
+                                    MaterialTheme.colorScheme.primary
+                                else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
                         },
                         colors = NavigationBarItemDefaults.colors(
                             indicatorColor = MaterialTheme.colorScheme.secondaryContainer,
@@ -124,43 +119,20 @@ fun HomePage(navController: NavController, authViewModel: AuthViewModel) {
             selectedIndex = selectedIndex,
             authViewModel = authViewModel
         )
-        ExpandCollapseButton(isExpanded, onToggle = { isExpanded = !isExpanded })
     }
 }
 
 @Composable
-fun ExpandCollapseButton(isExpanded: Boolean, onToggle: () -> Unit) {
-    Icon(
-        imageVector = if (isExpanded) Icons.Default.Add else Icons.Default.Notifications,
-        contentDescription = if (isExpanded) "Collapse" else "Expand",
-        modifier = Modifier
-            .padding(16.dp)
-            .size(24.dp)
-            .clickable { onToggle() },
-        tint = MaterialTheme.colorScheme.primary
-    )
-}
+fun ContentScreen(modifier: Modifier = Modifier, selectedIndex: Int, authViewModel: AuthViewModel) {
+    val database = AppDatabase.getDatabase(LocalContext.current)
+    val feedbackDao = database.feedbackDao()
 
-
-@Composable
-fun ContentScreen(modifier : Modifier = Modifier , selectedIndex : Int , authViewModel: AuthViewModel){
-    val database = Room.databaseBuilder(
-        LocalContext.current, // Use LocalContext to get the context
-        AppDatabase::class.java,
-        "app_database" // Database name
-    ).build()
     val context = LocalContext.current
-    when(selectedIndex){
+    when (selectedIndex) {
         0 -> MenuPage()
         1 -> TimingScreen(context)
         2 -> FeedbackPage()
-        3 -> LogOut(authViewModel = authViewModel)
-        4 -> ImageManagementPage(context = context, database = database)
-
+        3 -> ImageManagementPage(context = context, database = database)
+        4 -> ReviewPage(feedbackDao = feedbackDao)
     }
 }
-
-
-
-
-

@@ -9,4 +9,5 @@ data class ImagePost(
     val imagePath: String,
     val description: String,
     val timestamp: Long
+
 )

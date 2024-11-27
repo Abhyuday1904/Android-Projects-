@@ -100,4 +100,5 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-pager:0.28.0")
 
     implementation("com.google.accompanist:accompanist-permissions:0.31.1-alpha")
+
 }
